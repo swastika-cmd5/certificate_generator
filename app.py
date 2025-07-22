@@ -18,7 +18,7 @@ def index():
         cert = Image.open("static/certificate_template.png")
         draw = ImageDraw.Draw(cert)
         font_path = os.path.join("fonts", "arial.ttf")
-        font_name = ImageFont.truetype(font_path, 36)
+        font_name = ImageFont.truetype(font_path, 42)
         font_course = ImageFont.truetype(font_path, 36)
 
         # Coordinates: tuned to fit the uploaded image (2000 x 1414)
