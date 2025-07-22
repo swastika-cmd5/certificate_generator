@@ -7,8 +7,8 @@ from datetime import datetime
 FONT_PATH = os.path.join("fonts", "arial.ttf")
 
 try:
-    font_name = ImageFont.truetype(FONT_PATH, 60)
-    font_course = ImageFont.truetype(FONT_PATH, 40)
+    font_name = ImageFont.truetype(FONT_PATH, 100)
+    font_course = ImageFont.truetype(FONT_PATH, 70)
 except IOError:
     font_name = ImageFont.load_default()
     font_course = ImageFont.load_default()
@@ -26,8 +26,8 @@ def index():
         draw = ImageDraw.Draw(cert)
 
         try:
-            font_name = ImageFont.truetype("arial.ttf", 60)
-            font_course = ImageFont.truetype("arial.ttf", 40)
+            font_name = ImageFont.truetype("arial.ttf", 100)
+            font_course = ImageFont.truetype("arial.ttf", 70)
         except:
             font_name = ImageFont.load_default()
             font_course = ImageFont.load_default()
