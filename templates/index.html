@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Certificate Generator</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background-color: #f4f6f8;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px;
+        }
+
+        h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        form {
+            background-color: #ffffff;
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 6px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="date"] {
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        iframe {
+            margin-top: 30px;
+            border: none;
+            width: 90%;
+            max-width: 800px;
+            height: 600px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        a {
+            margin-top: 15px;
+            display: inline-block;
+            text-decoration: none;
+            font-weight: 500;
+            color: #0066cc;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h2>🎓 Generate Certificate</h2>
+    <form method="POST">
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" required>
+
+        <label for="course">Course:</label>
+        <input type="text" name="course" id="course" required>
+
+        <label for="date">Date:</label>
+        <input type="date" name="date" id="date" required>
+
+        <input type="submit" value="Generate">
+    </form>
+
+    {% if pdf_url %}
+    <h3>Certificate Preview:</h3>
+    <iframe src="{{ pdf_url }}"></iframe><br>
+    <a href="{{ pdf_url }}" download>⬇️ Download Certificate</a>
+    {% endif %}
+</body>
+</html>
