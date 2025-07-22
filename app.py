@@ -19,7 +19,7 @@ def index():
         draw = ImageDraw.Draw(cert)
         font_path = os.path.join("fonts", "arial.ttf")
         font_name = ImageFont.truetype(font_path, 36)
-        font_course = ImageFont.truetype(font_path, 20)
+        font_course = ImageFont.truetype(font_path, 36)
 
         # Coordinates: tuned to fit the uploaded image (2000 x 1414)
         draw.text((500, 650), name, font=font_name, fill="black")
