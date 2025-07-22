@@ -4,7 +4,14 @@ from PIL import Image, ImageDraw, ImageFont
 import io
 import os
 from datetime import datetime
+FONT_PATH = os.path.join("fonts", "arial.ttf")
 
+try:
+    font_name = ImageFont.truetype(FONT_PATH, 60)
+    font_course = ImageFont.truetype(FONT_PATH, 40)
+except IOError:
+    font_name = ImageFont.load_default()
+    font_course = ImageFont.load_default()
 app = Flask(__name__)
 
 @app.route("/", methods=["GET", "POST"])
