@@ -4,14 +4,7 @@ from PIL import Image, ImageDraw, ImageFont
 import io
 import os
 from datetime import datetime
-FONT_PATH = os.path.join("fonts", "arial.ttf")
 
-try:
-    font_name = ImageFont.truetype(FONT_PATH, 100)
-    font_course = ImageFont.truetype(FONT_PATH, 70)
-except IOError:
-    font_name = ImageFont.load_default()
-    font_course = ImageFont.load_default()
 app = Flask(__name__)
 
 @app.route("/", methods=["GET", "POST"])
@@ -24,13 +17,9 @@ def index():
 
         cert = Image.open("static/certificate_template.png")
         draw = ImageDraw.Draw(cert)
-
-        try:
-            font_name = ImageFont.truetype("arial.ttf", 100)
-            font_course = ImageFont.truetype("arial.ttf", 70)
-        except:
-            font_name = ImageFont.load_default()
-            font_course = ImageFont.load_default()
+        font_path = os.path.join("fonts", "arial.ttf")
+        font_name = ImageFont.truetype(font_path, 60)
+        font_course = ImageFont.truetype(font_path, 40)
 
         # Coordinates: tuned to fit the uploaded image (2000 x 1414)
         draw.text((500, 650), name, font=font_name, fill="black")
